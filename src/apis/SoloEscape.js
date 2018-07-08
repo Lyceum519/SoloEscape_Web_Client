@@ -27,3 +27,23 @@ export function getProfileById(args) {
   })
   .then( response => { return response } )
 }
+
+export function saveProfile(args) {
+  console.log("save", ...args);
+  return axios.post('http://localhost:4000/profile-save', {
+    args,
+  })
+  .then( response => { return response })
+}
+
+export function signIn(args) {
+  console.log("signin")
+  return axios.post('http://localhost:4000/auth/google')
+  .then( response => { 
+    console.log("signin result", response);
+    return response 
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+}
